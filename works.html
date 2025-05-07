@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Works - Custom Music Creation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Your Name</h1>
+                <p>Custom Music Creator</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="works.html" class="active">My Works</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="works-header">
+        <div class="container">
+            <h2>My Music Portfolio</h2>
+        </div>
+    </section>
+
+    <section class="works-main">
+        <div class="container">
+            <div class="works-categories">
+                <ul>
+                    <li><a href="#" class="active" data-category="all">All</a></li>
+                    <li><a href="#" data-category="commercial">Commercial</a></li>
+                    <li><a href="#" data-category="personal">Personal</a></li>
+                    <li><a href="#" data-category="background">Background Music</a></li>
+                </ul>
+            </div>
+
+            <div class="works-grid">
+                <!-- Song 1 -->
+                <div class="work-item" data-category="commercial">
+                    <img src="images/placeholder-1.jpg" alt="Brand Theme Song">
+                    <h3>Brand Theme Song</h3>
+                    <p>A custom jingle created for Company X's product launch campaign.</p>
+                    <a href="songs/song1.html" class="btn-small">View Details</a>
+                </div>
+                
+                <!-- Song 2 -->
+                <div class="work-item" data-category="personal">
+                    <img src="images/placeholder-2.jpg" alt="Wedding First Dance">
+                    <h3>Wedding First Dance</h3>
+                    <p>A personalized song for John and Sarah's first dance at their wedding.</p>
+                    <a href="songs/song2.html" class="btn-small">View Details</a>
+                </div>
+                
+                <!-- Song 3 -->
+                <div class="work-item" data-category="background">
+                    <img src="images/placeholder-3.jpg" alt="Podcast Intro">
+                    <h3>Podcast Intro</h3>
+                    <p>Distinctive intro music created for the "Tech Talk" podcast.</p>
+                    <a href="songs/song3.html" class="btn-small">View Details</a>
+                </div>
+                
+                <!-- Song 4 -->
+                <div class="work-item" data-category="commercial">
+                    <img src="images/placeholder-4.jpg" alt="Video Ad Background">
+                    <h3>Video Ad Background</h3>
+                    <p>Upbeat background music for Company Y's promotional video campaign.</p>
+                    <a href="songs/song4.html" class="btn-small">View Details</a>
+                </div>
+                
+                <!-- Song 5 -->
+                <div class="work-item" data-category="personal">
+                    <img src="images/placeholder-5.jpg" alt="Birthday Surprise">
+                    <h3>Birthday Surprise</h3>
+                    <p>A special song created for Mike's 50th birthday celebration.</p>
+                    <a href="songs/song5.html" class="btn-small">View Details</a>
+                </div>
+                
+                <!-- Song 6 -->
+                <div class="work-item" data-category="background">
+                    <img src="images/placeholder-6.jpg" alt="Mobile App Sounds">
+                    <h3>Mobile App Sounds</h3>
+                    <p>A suite of sound effects and background music for a meditation app.</p>
+                    <a href="songs/song6.html" class="btn-small">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Want Your Own Custom Music?</h2>
+            <p>I can create a unique composition tailored specifically to your needs</p>
+            <a href="services.html" class="btn btn-large">Let's Create Together</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Your Name</h3>
+                    <p>Custom music creator helping clients bring their vision to life through unique compositions.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: your.email@example.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Your Name. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Category filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryLinks = document.querySelectorAll('.works-categories a');
+            const workItems = document.querySelectorAll('.work-item');
+            
+            categoryLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links
+                    categoryLinks.forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    
+                    // Show/hide items based on category
+                    workItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
